@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/server.js",
+  "main": "out/app.js",
   "dependencies": {
     "@types/bcrypt": "^3.0.0",
     "@types/jsonwebtoken": "^8.3.9",
@@ -13,6 +13,7 @@
     "mongodb": "^3.5.7"
   },
   "devDependencies": {
+    "@types/bcrypt": "^3.0.0",
     "@types/body-parser": "^1.17.1",
     "@types/express": "^4.17.1",
     "@types/mongodb": "^3.5.16",
@@ -29,12 +30,12 @@
     "lint": "tslint -c tslint.json -p tsconfig.json --fix",
     "tsc": "tsc",
     "build": "npm-run-all clean lint tsc",
-    "dev-deb": "ts-node-dev --respawn --transpileOnly --nolazy --inspect-brk=5858 ./src/server.ts",
-    "dev": "ts-node-dev --respawn --transpileOnly ./src/server.ts",
+    "dev-deb": "ts-node-dev --respawn --transpileOnly --nolazy --inspect-brk=5858 ./src/mainRouter.ts",
+    "dev": "ts-node-dev --respawn --transpileOnly ./src/mainRouter.ts",
     "prod": "npm-run-all build start",
     "prod-deb": "npm-run-all start-deb",
-    "start": "nodemon --nolazy ./dist/server.js",
-    "start-deb": "nodemon --nolazy --inspect-brk=5858 ./dist/server.js",
+    "start": "nodemon --nolazy ./dist/mainRouter.js",
+    "start-deb": "nodemon --nolazy --inspect-brk=5858 ./dist/mainRouter.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
