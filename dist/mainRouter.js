@@ -13,19 +13,21 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+var betRouter_1 = require("./bets/betRouter");
 var AppRouter_1 = require("./common/AppRouter");
-var securityrouter_1 = require("./security/securityrouter");
 var projectsRouter_1 = require("./projects/projectsRouter");
-//root router for the API
+var securityRouter_1 = require("./security/securityRouter");
+// root router for the API
 var MainRouter = /** @class */ (function (_super) {
     __extends(MainRouter, _super);
     function MainRouter() {
         return _super.call(this) || this;
     }
-    //adds the child routers to various paths to form the overall API. 
+    // adds the child routers to various paths to form the overall API.
     MainRouter.prototype.setupRoutes = function () {
-        this.addRouter('/security', new securityrouter_1.SecurityRouter());
-        this.addRouter('/projects', new projectsRouter_1.ProjectsRouter());
+        this.addRouter("/security", new securityRouter_1.SecurityRouter());
+        this.addRouter("/projects", new projectsRouter_1.ProjectsRouter());
+        this.addRouter("/bets", new betRouter_1.BetRouter());
     };
     return MainRouter;
 }(AppRouter_1.AppRouter));

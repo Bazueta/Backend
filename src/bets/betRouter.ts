@@ -1,17 +1,17 @@
-import { AppRouter } from "./../common/AppRouter";
-import { SecurityMiddleware } from "./../security/securityMiddleware";
-import { ProjectsModel } from "./../projects/projectsModel";
+import { AppRouter } from "../common/AppRouter";
+import { SecurityMiddleware } from "../security/securityMiddleware";
 import { BetController } from "./betController";
 
 export class BetRouter extends AppRouter {
-    public static BetController: BetController = new BetController();
+    public static betController: BetController = new BetController();
     constructor() {super(); }
 
     public setupRoutes(): void {
-        this.expressRouter.get("/:title", BetRouter.BetController.getBets);
-        this.expressRouter.get("/:title/:id", BetRouter.BetController.getBet);
-        this.expressRouter.post("/", [SecurityMiddleware.RequireAuth], BetRouter.BetController.postBet);
-        this.expressRouter.put("/:id", [SecurityMiddleware.RequireAuth], BetRouter.BetController.putBet);
-        this.expressRouter.delete("/:id", [SecurityMiddleware.RequireAuth], BetRouter.BetController.deleteBet);
+        this.expressRouter.get("/", BetRouter.betController.getBets);
+        this.expressRouter.get("/:title/:id", BetRouter.betController.getBet);
+        this.expressRouter.post("/", BetRouter.betController.postBet);
+        this.expressRouter.put("/:id", BetRouter.betController.putBet);
+        this.expressRouter.delete("/:title/:id", BetRouter.betController.deleteBet);
+        this.expressRouter.put("/:title/:id", BetRouter.betController.joinBet);
     }
 }

@@ -2,12 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var ProjectsModel = /** @class */ (function () {
     function ProjectsModel() {
-        this.id = '';
-        this.name = '';
-        this.description = '';
-        this.groupid = '';
+        this.id = "";
+        this.name = "";
+        this.description = "";
+        this.groupid = "";
         this.groupMembers = [];
-        this.semester = '';
+        this.semester = "";
         this.projectNumber = 0;
     }
     ProjectsModel.fromObject = function (object) {

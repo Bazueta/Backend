@@ -20,7 +20,7 @@ var AppRouter = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    //addRouter: Adds a child router on the given path beneath this router
+    // addRouter: Adds a child router on the given path beneath this router
     //   path: the path to reach the new router
     //   child: the child router object to be attached
     AppRouter.prototype.addRouter = function (path, child) {
