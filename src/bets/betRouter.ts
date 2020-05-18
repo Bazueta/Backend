@@ -13,5 +13,6 @@ export class BetRouter extends AppRouter {
         this.expressRouter.put("/:id", BetRouter.betController.putBet);
         this.expressRouter.delete("/:title/:id", BetRouter.betController.deleteBet);
         this.expressRouter.put("/:title/:id", BetRouter.betController.joinBet);
+        this.expressRouter.get("/amounts/:title/:id/", BetRouter.betController.getAmounts);
     }
 }

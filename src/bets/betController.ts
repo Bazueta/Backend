@@ -8,7 +8,7 @@ export class BetController {
     public static betTable = "bets";
 
     public getBets(req: express.Request, res: express.Response)  {
-        
+
         BetController.db.getRecords(BetController.betTable)
             .then((results) => res.send({ fn: "getBets", status: "success", data: results }).end())
             .catch((reason) => res.status(500).send(reason).end());
@@ -43,7 +43,7 @@ export class BetController {
        const id = Database.stringToId(req.params.id);
        BetController.db.deleteRecord(BetController.betTable, {_id: id})
        .then((results) => results ? (res.send({ fn: "deleteBet", status: "success" })) : (res.send({ fn: "deleteBet", status: "failure", data: "Not found" })).end())
-       .catch((reason) => res.status(500).send(reason).end());   
+       .catch((reason) => res.status(500).send(reason).end());
     }
 
     public joinBet(req: express.Request, res: express.Response) {
@@ -55,5 +55,15 @@ export class BetController {
             .then((results) => results ? (res.send({ fn: "joinBet", status: "success" })) : (res.send({ fn: "joinBet", status: "failure", data: "Not found" })).end())
             .catch((err) => res.send({ fn: "joinBet", status: "failure", data: err }).end());
     }
-    
+
+    public getAmounts(req: express.Request, res: express.Response) {
+        const id = Database.stringToId(req.params.id);
+        const title = req.params.title;
+        const betAmounts = req.params.betAmounts;
+        BetController.db.getOneRecord(BetController.betTable, {title, _id: id})
+            .then((results) => res.send({ fn: "getAmounts", status: "success", data: results.betAmounts }).end())
+            .catch((reason) => res.status(500).send(reason).end());
+        
+    }
+
 }

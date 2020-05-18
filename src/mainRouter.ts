@@ -4,7 +4,6 @@ import { AppRouter } from "./common/AppRouter";
 import { ProjectsRouter } from "./projects/projectsRouter";
 import { SecurityRouter } from "./security/securityRouter";
 
-
 // root router for the API
 
 export class MainRouter extends AppRouter {
